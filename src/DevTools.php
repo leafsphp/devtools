@@ -37,7 +37,7 @@ class DevTools
      */
     public static function install()
     {
-        /**@var \Leaf\App */
+        /** @var \Leaf\App */
         $leafInstance = \Leaf\Config::get('app.instance') ?? app();
 
         $leafInstance->get('/leafDevToolsEventHook', function () use ($leafInstance) {
