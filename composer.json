@@ -1,0 +1,45 @@
+{
+	"name": "leafs/devtools",
+	"description": "DevTools server-side hook for Leaf PHP",
+	"keywords": [
+		"devtools",
+		"chrome"
+	],
+	"homepage": "https://leafphp.dev/modules/devtools/",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Michael Darko",
+			"email": "mickdd22@gmail.com",
+			"homepage": "https://mychi.netlify.app",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Leaf\\": "src"
+		},
+		"files": [
+			"src/functions.php"
+		]
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"leafs/leaf": "*"
+	},
+	"require-dev": {
+		"pestphp/pest": "^1.21",
+		"friendsofphp/php-cs-fixer": "^3.0"
+	},
+	"scripts": {
+        "format": "vendor/bin/php-cs-fixer fix --config=.php_cs.dist.php --allow-risky=yes",
+        "test": "vendor/bin/pest"
+    },
+	"config": {
+		"allow-plugins": {
+			"pestphp/pest-plugin": true
+		}
+	}
+}
