@@ -31,7 +31,8 @@
 	},
 	"require-dev": {
 		"pestphp/pest": "^1.21",
-		"friendsofphp/php-cs-fixer": "^3.0"
+		"friendsofphp/php-cs-fixer": "^3.0",
+		"symfony/var-dumper": "^6.2"
 	},
 	"scripts": {
         "format": "vendor/bin/php-cs-fixer fix --config=.php_cs.dist.php --allow-risky=yes",
