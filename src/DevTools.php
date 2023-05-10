@@ -50,12 +50,16 @@ class DevTools
             $leafInstance
                 ->response()
                 ->withHeader([
+                    'Access-Control-Allow-Origin' => '*',
+                    'Access-Control-Allow-Methods' => '*',
+                    'Access-Control-Allow-Headers' => '*',
                     'Cache-Control' => 'no-cache',
                 ])
                 ->json([
                     'app' => [
                         'name' => basename(getcwd()),
                         'phpVersion' => phpversion(),
+                        'devToolsVersion' => \Composer\InstalledVersions::getPrettyVersion('leafs/devtools') ?? json_decode(file_get_contents(getcwd() . '/composer.json') ?? '{}', true)['require']['leafs/devtools'] ?? 'UNKNOWN',
                         'leafVersion' => \Composer\InstalledVersions::getPrettyVersion('leafs/leaf') ?? json_decode(file_get_contents(getcwd() . '/composer.json') ?? '{}', true)['require']['leafs/leaf'] ?? 'UNKNOWN',
                         'config' => \Leaf\Config::get(),
                         'dependencies' => \Composer\InstalledVersions::getAllRawData()[0]['versions'] ?? [],
