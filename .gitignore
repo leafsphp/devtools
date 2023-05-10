@@ -5,6 +5,7 @@ composer.lock
 package-lock.json
 .phpunit.result.cache
 .php-cs-fixer.cache
+node_modules/
 vendor/
 test/
 
