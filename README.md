@@ -5,7 +5,7 @@
   <br>
 </p>
 
-<h1 align="center">Leaf DevTools Server Extension</h1>
+<h1 align="center">Leaf DevTools</h1>
 
 <p align="center">
 	<a href="https://packagist.org/packages/leafs/devtools"
@@ -27,7 +27,7 @@
 <br />
 <br />
 
-This is the server-side extension for the Leaf DevTools. This library allows the Chrome extension to communicate with your Leaf app and provide you with useful information about your app while you develop.
+Leaf DevTools provides a set of tools for debugging and understanding your Leaf applications. At the Core, the DevTools provides a visual tool with a clean and intuitive UI holding information about your Leaf application, and a light-weight library that you can use to interact with the devtools frontend.
 
 ## Basic Usage
 
@@ -35,6 +35,8 @@ This is the server-side extension for the Leaf DevTools. This library allows the
 <?php
 
 require __DIR__ . '/vendor/autoload.php';
+
+\Leaf\DevTools::install();
 
 app()->get('/', function () {
   response()->json([
@@ -44,6 +46,24 @@ app()->get('/', function () {
 
 app()->run();
 ```
+
+After this, you can access the devtools at `<app-url>/leafDevTools`. For your own convenience, you can add a route to the devtools like so:
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+\Leaf\DevTools::install('/customDevToolsRoute');
+
+...
+```
+
+This will serve the devtools at `<app-url>/customDevToolsRoute`.
+
+## Overview
+
+![Leaf DevTools](https://user-images.githubusercontent.com/26604242/235434208-82ccdd87-6289-43fd-b93b-5fa09e6acd20.jpg)
 
 ## 💬 Stay In Touch
 
