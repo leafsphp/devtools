@@ -25,7 +25,7 @@ function App() {
 
     useEffect(() => {
         setScreen('Home');
-        setUrl("http://localhost:5500");
+        setUrl(window.location.origin);
     }, []);
 
     useEffect(() => {
