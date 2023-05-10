@@ -35,12 +35,12 @@ class DevTools
     /**
      * Grant Leaf DevTools access to your Leaf application
      */
-    public static function install()
+    public static function install($path = '/leafDevTools', $hookUrl = '/leafDevToolsEventHook')
     {
         /** @var \Leaf\App */
         $leafInstance = \Leaf\Config::get('app.instance') ?? app();
 
-        $leafInstance->get('/leafDevToolsEventHook', function () use ($leafInstance) {
+        $leafInstance->get($hookUrl, function () use ($leafInstance) {
             $action = $leafInstance->request()->get('action');
 
             if ($action === 'clearLogs') {
@@ -74,6 +74,10 @@ class DevTools
                     'env' => getenv(),
                     'console' => \Leaf\DevTools::getLogs(),
                 ]);
+        });
+
+        $leafInstance->get($path, function () use ($leafInstance) {
+            $leafInstance->response()->page(__DIR__ . '/client/dist/index.html');
         });
     }
 }
