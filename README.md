@@ -47,19 +47,7 @@ app()->get('/', function () {
 app()->run();
 ```
 
-After this, you can access the devtools at `<app-url>/leafDevTools`. For your own convenience, you can add a route to the devtools like so:
-
-```php
-<?php
-
-require __DIR__ . '/vendor/autoload.php';
-
-\Leaf\DevTools::install('/customDevToolsRoute');
-
-...
-```
-
-This will serve the devtools at `<app-url>/customDevToolsRoute`.
+After this, you can access the devtools at `<app-url>/leafDevTools`.
 
 ## Overview
 
